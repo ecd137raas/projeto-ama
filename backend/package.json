@@ -10,7 +10,9 @@
   "author": "Emerson Duarte",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "jest": "^25.2.4",
     "knex": "^0.20.13",
     "sqlite3": "^4.1.1"
   },
