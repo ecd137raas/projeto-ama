@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import Header from '../Header';
-import Menu from '../Menu';
 
 import api from '../../services/api';
 import './style.css';
@@ -25,7 +24,6 @@ export default function Employee() {
     return(
         <div>
             <Header />
-            <Menu />
             <div className="employee-container">
                 <div className="content">
                     <section> 
