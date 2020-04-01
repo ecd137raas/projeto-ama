@@ -30,7 +30,7 @@ export default function Login() {
             <section className="form">
                 <img src={ logoImg } alt="AMA" />
                 <form onSubmit={handleLogin}>
-                    <input type='email' placeholder="Informe o email para logon" value={email} onChange={e => setEmail(e.target.value)} required/>
+                    <input type='email' placeholder="Informe o e-mail para logon" value={email} onChange={e => setEmail(e.target.value)} required/>
                     <button className="button" type="submit">Entrar</button>
                 </form>
             </section>

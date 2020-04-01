@@ -29,7 +29,7 @@ export default function Employee() {
                     <section> 
                         <h1>Cadastrar profissional do AMA</h1>
                         <p>Informe os campos obrigatórios para cadastro do profissional, não esqueça de marcar se este é um terapeuta e se está ativo!</p>
-                        <Link className="back-link" to="/profile">
+                        <Link className="back-link" to="/home">
                             <FiArrowLeft size={16} color="#E02041" />
                             Voltar para home
                         </Link>
