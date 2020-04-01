@@ -1,4 +1,4 @@
-.signin-container {
+.logon-container {
     display: flex;
     margin-top: 80px;
     align-items: center;
@@ -7,11 +7,11 @@
 
 }
 
-.signin-container section.form img {
+.logon-container section.form img {
     height: 150px;
 }
 
-.signin-container section.form form {
+.logon-container section.form form {
     margin-top: 50px;
 }
 
