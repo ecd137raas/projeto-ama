@@ -18,6 +18,7 @@ export default function Home(){
     return (
         <div className="header-container">
             <header>
+            <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
                 <img src={logotopoImg} alt="AMA" />
                 <span>Olá {name}! <p> {specialty} </p></span>
                 <button  onClick={handleLogout} type="button">
