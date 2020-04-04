@@ -10,14 +10,21 @@ import './style.css';
 export default function Employee() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [role, setRole] = useState('');
+    const [city, setCity] = useState('');
+    const [uf, setUf] = useState('');
+    const [therapist, setTherapist] = useState('');
+    const [active, setActive] = useState('');
+    const history = useHistory();
 
-    async function handleEmployee(){
-
+    async function handleEmployee(e){
+        e.preventDefault();
+        const data = {name, email, role, city, uf, therapist, active};
         try{
-            //const res = await api.post('employee')
-
+            const res = await api.post('employee', data);
+            history.push('/')
         } catch(error) {
-
+            alert('Erro ao cadastrar um profissional, tente novamente.');
         }
     }
 
@@ -34,24 +41,28 @@ export default function Employee() {
                             Voltar para home
                         </Link>
                     </section>
-                    <form >
-                        <input placeholder="Nome completo"  required/>
-                        <input type="email" placeholder="E-mail" required />
-                        <input placeholder="Especialidade" required />
+                    <form onSubmit={handleEmployee}>
+                        <input placeholder="Nome completo" value={name} onChange={e => setName(e.target.value)} required/>
+                        <input type="email" placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)} required />
+                        <input placeholder="Especialidade" value={role} onChange={e => setRole(e.target.value)} required />
                         <table >
                             <tr >
-                                <td ><input placeholder="Cidade" required/> </td>
-                                <td> <input placeholder="UF" required/> </td>
+                                <td ><input placeholder="Cidade" value={city} onChange={e => setCity(e.target.value)} required/> </td>
+                                <td> <input placeholder="UF" value={uf} onChange={e => setUf(e.target.value)} required/> </td>
                             </tr>
                             <tr >
-                                <label>Terapeuta:</label>
-                                <select>
-                                    <option value="S">Sim</option>
-                                    <option value="N" selected>Não</option>
-                                </select>
+                                <label>
+                                    Terapeuta:
+                                    <select value={therapist} onChange={e => setTherapist(e.target.value)} required> 
+                                        <option></option>
+                                        <option value="S" >Sim</option>
+                                        <option value="N" >Não</option>
+                                    </select>
+                                </label>
                                 <label>    Ativo:</label>
-                                <select >
-                                    <option value="S" selected>Sim</option>
+                                <select value={active} onChange={e => setActive(e.target.value)} required>
+                                    <option ></option>
+                                    <option value="S">Sim</option>
                                     <option value="N">Não</option>
                                 </select>
                             </tr>

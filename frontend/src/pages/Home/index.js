@@ -1,10 +1,12 @@
 import React from 'react';
+import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import Header from '../Header';
 
 import userImg from '../../assets/users.svg'
 import icoImg from '../../assets/icoImg.svg'
 import calendar from '../../assets/calendar.svg'
+
 import './style.css';
 
 export default function Home(){
@@ -26,6 +28,7 @@ export default function Home(){
                     Agendamentos
                 </Link> 
             </ul>
+            <Button bsStyle="primary">Primary</Button>
         </div>
         
     )
