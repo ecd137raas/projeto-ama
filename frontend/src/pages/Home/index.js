@@ -1,35 +1,60 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {Form, Container, Table} from 'react-bootstrap';
 import Header from '../Header';
 
 import userImg from '../../assets/users.svg'
 import icoImg from '../../assets/icoImg.svg'
 import calendar from '../../assets/calendar.svg'
 
-import './style.css';
-
 export default function Home(){
     
     return (
-        <div className="home-container">
+        <Container>
             <Header />
-            <ul>
-                <Link className="link"  to="/employee">
-                    <img src={userImg} alt="Cadastro profissionais" />
-                     <p align="center">Profissionais AMA</p>
-                </Link>
-                <Link className="link" >
-                    <img src={icoImg} alt="Cadastro criancas" />
-                    <p align="center">Crianças AMA</p>
-                </Link>
-                <Link className="link" >
-                    <img src={calendar} alt="Cadastro agendas" />
-                    Agendamentos
-                </Link> 
-            </ul>
-            <Button bsStyle="primary">Primary</Button>
-        </div>
-        
+            <Form>
+                <Table responsive>
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>1</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        </tr>
+                        <tr>
+                        <td>2</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        </tr>
+                        <tr>
+                        <td>3</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        </tr>
+                    </tbody>
+                </Table>
+                </Form>
+        </Container>
     )
 }

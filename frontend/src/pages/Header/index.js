@@ -1,9 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { FiLogIn } from 'react-icons/fi';
-
+import {Image,  
+        Navbar, 
+        NavDropdown,
+        Container, 
+        Nav, Form} from 'react-bootstrap';
 import logotopoImg from '../../assets/logo_topo.png';
-import './style.css';
+
 
 export default function Home(){
     const history = useHistory();
@@ -16,14 +19,30 @@ export default function Home(){
     }
 
     return (
-        <div className="header-container">
-            <header>
-                <img src={logotopoImg} alt="AMA" />
-                <span>Olá {name}! <p> {role} </p></span>
-                <button  onClick={handleLogout} type="button">
-                    <FiLogIn size={24} color="#6699F6" />
-                </button>
-            </header>
-        </div>
+        <Container>
+            <Navbar expand="lg" bg="light" variant="light" >
+                <Image src={logotopoImg} width={30} alt="AMA" />
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link href="/home" active>AMA Jundiaí</Nav.Link>
+                        <NavDropdown title="Opções" id="basic-nav-dropdown">
+                            <NavDropdown.Item href="/employee">Profissionais AMA</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Crianças AMA</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">Perfil</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action/3.3">Agendamento</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                    <Form>
+                        <Navbar.Collapse className="justify-content-end">
+                            <Navbar.Text>
+                                Login: <a className="font-weight-bold">{name}</a><a className="text-primary" href="#" onClick={handleLogout}> Sair</a>
+                            </Navbar.Text>
+                        </Navbar.Collapse>
+                    </Form>
+                </Navbar.Collapse>
+            </Navbar>
+        </Container>
     )
 }
