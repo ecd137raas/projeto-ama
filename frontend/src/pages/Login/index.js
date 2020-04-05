@@ -27,16 +27,16 @@ export default function Login() {
     return(
         <div class='container'>
             <div class="justify-content-center align-items-center row">
-                <div class="col-md-4 align-self-center text-center mt-5">
+                <div class="col-md-4 align-self-center mt-5">
                     <Form onSubmit={handleLogin}>
                         <Form.Group>
                             <Image src={logoImg} width={350}/>
                         </Form.Group>
                         <FormGroup>    
-                            <Form.Control type="email" size="md" placeholder="Informe o e-mail para logon" value={email} onChange={e => setEmail(e.target.value)} required />
+                            <Form.Control type="email" size="sm" placeholder="E-Mail" value={email} onChange={e => setEmail(e.target.value)} required />
                             <Form.Text className="text-muted"> Nunca compartilhe seu e-mail com ninguém.</Form.Text>
                         </FormGroup>
-                        <Button bsStyle='Primary' width='100%' type="submit" size="lg" block>Entrar</Button>
+                        <Button bsStyle='Primary' width='100%' type="submit" size="md" block>Entrar</Button>
                     </Form>
                 </div>
             </div>

@@ -1,10 +1,10 @@
 import React from 'react';
+import {FiUserCheck, FiPower} from 'react-icons/fi'
 import { useHistory } from 'react-router-dom';
-import {Image,  
-        Navbar, 
+import {Navbar, 
         NavDropdown,
-        Container, 
-        Nav, Form} from 'react-bootstrap';
+        Nav, Form, NavbarBrand} from 'react-bootstrap';
+
 import logotopoImg from '../../assets/logo_topo.png';
 
 
@@ -19,9 +19,10 @@ export default function Home(){
     }
 
     return (
-        <Container>
             <Navbar expand="lg" bg="light" variant="light" >
-                <Image src={logotopoImg} width={30} alt="AMA" />
+                <NavbarBrand>
+                    <img src={logotopoImg} width="30" height="30" className="d-inline-block align-top" />
+                </NavbarBrand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -37,12 +38,11 @@ export default function Home(){
                     <Form>
                         <Navbar.Collapse className="justify-content-end">
                             <Navbar.Text>
-                                Login: <a className="font-weight-bold">{name}</a><a className="text-primary" href="#" onClick={handleLogout}> Sair</a>
+                                <a><FiUserCheck size={20} color="#008000" ></FiUserCheck></a>  <a className="text-muted small">{name}</a> | <a> <FiPower size={18} color="#f21e1e" onClick={handleLogout}></FiPower></a>
                             </Navbar.Text>
                         </Navbar.Collapse>
                     </Form>
                 </Navbar.Collapse>
             </Navbar>
-        </Container>
     )
 }
