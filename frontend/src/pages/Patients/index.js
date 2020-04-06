@@ -6,17 +6,20 @@ import Header from '../Header';
 
 import api from '../../services/api';
 
-export default function Employee() {
+export default function Patients() {
     const [name, setName] = useState('');
+    const [birth, setBirth] = useState('');
+    const [genre, setGenre] = useState('');
+    const [degree, setdegree] = useState('');
+    const [responsible, setResponsible] = useState('');
     const [email, setEmail] = useState('');
-    const [role, setRole] = useState('');
+    const [phone, setPhone] = useState('');
     const [city, setCity] = useState('');
     const [uf, setUf] = useState('');
-    const [therapist, setTherapist] = useState('');
     const [active, setActive] = useState('');
     const history = useHistory();
 
-    async function handleEmployee(e){
+    async function handlePatients(e){
         e.preventDefault();
         const data = {name, email, role, city, uf, therapist, active};
         try{
@@ -31,12 +34,12 @@ export default function Employee() {
         <Container>
             <Header />
             <Card className='card' style={{marginTop: '30px'}}>
-                <Card.Header className='card-header'>Cadastro de profissionais do AMA</Card.Header>
+                <Card.Header className='card-header'>Cadastro de crianças atendidas no AMA</Card.Header>
                 <Card.Body style={{class:'card-body'},{ margin: '12px'}}>
                 <Card.Title>
-                    <h6 className="card-subtitle mb-2 text-muted">Preencha os campos abaixo para realizar o cadastro de um profissional do AMA, lembre-se de preencher corretamente!</h6>
+                    <h6 className="card-subtitle mb-2 text-muted">Preencha os campos abaixo para realizar o cadastro de uma criança para atendimento no AMA!</h6>
                 </Card.Title>
-                    <Form  onSubmit={handleEmployee}>
+                    <Form  onSubmit={handlePatients}>
                         <Form.Row>
                             <Col>
                                 <Form.Control type="text" placeholder="Nome completo"value={name} onChange={e => setName(e.target.value)} required/>

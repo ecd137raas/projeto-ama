@@ -1,5 +1,5 @@
 import React from 'react';
-import {FiUserCheck, FiPower} from 'react-icons/fi'
+import {FiUnlock, FiPower} from 'react-icons/fi'
 import { useHistory } from 'react-router-dom';
 import {Navbar, 
         NavDropdown,
@@ -29,7 +29,7 @@ export default function Home(){
                         <Nav.Link href="/home" active>AMA Jundiaí</Nav.Link>
                         <NavDropdown title="Opções" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/employee">Profissionais AMA</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Crianças AMA</NavDropdown.Item>
+                            <NavDropdown.Item href="/patients">Crianças AMA</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Perfil</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.3">Agendamento</NavDropdown.Item>
@@ -38,7 +38,7 @@ export default function Home(){
                     <Form>
                         <Navbar.Collapse className="justify-content-end">
                             <Navbar.Text>
-                                <a><FiUserCheck size={20} color="#008000" ></FiUserCheck></a>  <a className="text-muted small">{name}</a> | <a> <FiPower size={18} color="#f21e1e" onClick={handleLogout}></FiPower></a>
+                                <a><FiUnlock size={15} color="#008000" ></FiUnlock></a>  <a className="text-muted small">{name}</a> | <a> <FiPower size={18} color="#f21e1e" onClick={handleLogout}></FiPower></a>
                             </Navbar.Text>
                         </Navbar.Collapse>
                     </Form>

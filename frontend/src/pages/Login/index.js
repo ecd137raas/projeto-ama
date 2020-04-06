@@ -25,18 +25,18 @@ export default function Login() {
         }
     }
     return(
-        <div class='container'>
-            <div class="justify-content-center align-items-center row">
-                <div class="col-md-4 align-self-center mt-5">
+        <div className='container'>
+            <div className="justify-content-center align-items-center row">
+                <div className="col-md-4 align-self-center mt-5">
                     <Form onSubmit={handleLogin}>
                         <Form.Group>
-                            <Image src={logoImg} width={350}/>
+                            <Image src={logoImg} thumbnail/>
                         </Form.Group>
                         <FormGroup>    
-                            <Form.Control type="email" size="sm" placeholder="E-Mail" value={email} onChange={e => setEmail(e.target.value)} required />
+                            <Form.Control type="email" size="md" placeholder="E-Mail" value={email} onChange={e => setEmail(e.target.value)} required />
                             <Form.Text className="text-muted"> Nunca compartilhe seu e-mail com ninguém.</Form.Text>
                         </FormGroup>
-                        <Button bsStyle='Primary' width='100%' type="submit" size="md" block>Entrar</Button>
+                        <Button className='Primary' type="submit" size="md" block>Entrar</Button>
                     </Form>
                 </div>
             </div>
