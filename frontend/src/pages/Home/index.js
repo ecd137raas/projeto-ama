@@ -2,9 +2,6 @@ import React from 'react';
 import {Jumbotron, Container} from 'react-bootstrap';
 import Header from '../Header';
 
-import userImg from '../../assets/users.svg'
-import icoImg from '../../assets/icoImg.svg'
-import calendar from '../../assets/calendar.svg'
 
 export default function Home(){
     

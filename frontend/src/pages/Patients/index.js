@@ -10,7 +10,7 @@ export default function Patients() {
     const [name, setName] = useState('');
     const [birth, setBirth] = useState('');
     const [genre, setGenre] = useState('');
-    const [degree, setdegree] = useState('');
+    const [degree, setDegree] = useState('');
     const [responsible, setResponsible] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -21,12 +21,12 @@ export default function Patients() {
 
     async function handlePatients(e){
         e.preventDefault();
-        const data = {name, email, role, city, uf, therapist, active};
+        const data = {name, birth, genre, degree, responsible, email, phone,city, uf, active};
         try{
-            const res = await api.post('employee', data);
-            history.push('/home')
+            await api.post('patients', data);
+            history.push('/home');
         } catch(error) {
-            alert('Erro ao cadastrar um profissional, tente novamente.');
+            alert('Erro ao cadastrar uma criança, tente novamente.');
         }
     }
 
@@ -43,37 +43,59 @@ export default function Patients() {
                         <Form.Row>
                             <Col>
                                 <Form.Control type="text" placeholder="Nome completo"value={name} onChange={e => setName(e.target.value)} required/>
-                                <Form.Text className="text-muted"> Preencha o nome completo do profissional.</Form.Text>
+                                <Form.Text className="text-muted"> Preencha o nome completo.</Form.Text>
+                            </Col>
+                        </Form.Row>
+                        <Form.Row style={{marginTop:'10px'}}>
+                            <Col>
+                                <Form.Control className="form-control" type="Date" value={birth} onChange={e => setBirth(e.target.value)} required/>
+                                <Form.Text className="text-muted"> Preencha data de nascimento.</Form.Text>
                             </Col>
                             <Col>
-                                <Form.Control type="email" placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)} required/>
-                                <Form.Text className="text-muted"> Preencha seu e-mail.</Form.Text>
+                                <Form.Control as="select" value={genre} onChange={e => setGenre(e.target.value)}>
+                                    <option value='Menino'>Menino</option>
+                                    <option value='Menina'>Menina</option>
+                                </Form.Control>
+                                <Form.Text className="text-muted"> Selecione o genêro, menino ou menina.</Form.Text>
                             </Col>
-                            </Form.Row>
-                            <Form.Row>
                             <Col>
-                                <Form.Control className="form-control" type="text" placeholder="Especialidade ou cargo" value={role} onChange={e => setRole(e.target.value)} required/>
-                                <Form.Text className="text-muted"> Preencha sua especialidade, exemplo, Terapeuta.</Form.Text>
+                                <Form.Control as="select" value={degree} onChange={e => setDegree(e.target.value)}>
+                                    <option value='Indefinido'>Indefinido</option>
+                                    <option value='Leve'>Leve</option>
+                                    <option value='Moderado'>Moderado</option>
+                                    <option value='Severo'>Severo</option>
+                                </Form.Control>
+                                <Form.Text className="text-muted"> Selecione o grau do altismo.</Form.Text>
                             </Col>
-                            </Form.Row>
-                            <Form.Row>
-                                <Col>
-                                    <Form.Control className="form-control" type="text" placeholder="Cidade" value={city} onChange={e => setCity(e.target.value)} required/>
-                                    <Form.Text className="text-muted"> Preencha a cidade, exemplo, São Paulo.</Form.Text>
-                                </Col>
-                                <Col>
-                                    <Form.Control  className="form-control" type="text" placeholder="UF" value={uf} onChange={e => setUf(e.target.value)} required/>
-                                    <Form.Text className="text-muted"> Preencha seu estado, exemplo, SP.</Form.Text>
-                                </Col>
-                                <Col>
-                                    <Form.Check  type="checkbox" label="Terapeuta" checked={therapist} onChange={e => setTherapist(e.target.value)} />
-                                    <Form.Text className="text-muted"> Clique se o profissional for um terapeuta.</Form.Text>
-                                </Col>
-                                <Col>
-                                    <Form.Check type="checkbox" label="Ativo"  checked={active} onChange={e => setActive(e.target.value)}/>
-                                    <Form.Text className="text-muted"> Clique para ativar o usuário.</Form.Text>
-                                </Col>
-                           </Form.Row>
+                        </Form.Row>
+                        <Form.Row style={{marginTop:'10px'}}>
+                            <Col>
+                                <Form.Control className="form-control" type="text" placeholder="Nome do responsável" value={responsible} onChange={e => setResponsible(e.target.value)} required/>
+                                <Form.Text className="text-muted"> Preencha a responsável.</Form.Text>
+                            </Col>
+                            <Col>
+                                <Form.Control  className="form-control" type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required/>
+                                <Form.Text className="text-muted"> Preencha o e-mail do responsável.</Form.Text>
+                            </Col>
+                        </Form.Row>
+                        <Form.Row style={{marginTop:'10px'}}>
+                            <Col>
+                                <Form.Control  className="form-control" data-mask="(00) 00000-0000" type="text" placeholder="Celular (whatsapp)" value={phone} onChange={e => setPhone(e.target.value)} required/>
+                                <Form.Text className="text-muted"> Preencha o celular do responsável.</Form.Text>
+                            </Col>
+                            <Col>
+                                <Form.Control  className="form-control" type="text" placeholder="Cidade" value={city} onChange={e => setCity(e.target.value)} required/>
+                                <Form.Text className="text-muted"> Preencha a cidade.</Form.Text>
+                            </Col>
+                            <Col>
+                                <Form.Control  className="form-control" type="text" placeholder="UF" value={uf} onChange={e => setUf(e.target.value)} required/>
+                                <Form.Text className="text-muted"> Preencha o estado.</Form.Text>
+                            </Col>
+                            <Col>
+                                <Form.Check type="switch" label="Ativo" id="custom-switch" checked={active} onChange={e => setActive(e.target.value)}/>
+                                <Form.Text className="text-muted"> Ativar o cadastro.</Form.Text>
+                            </Col>
+                        </Form.Row>
                            <Button className="btn btn-primary btn-md mt-3" type="submit">Salvar</Button>
                            <Button className="btn btn-primary btn-md mt-3 ml-2" type="submit" href="/home">Voltar</Button>
                     </Form>

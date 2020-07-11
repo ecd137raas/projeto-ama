@@ -11,7 +11,6 @@ import logotopoImg from '../../assets/logo_topo.png';
 export default function Home(){
     const history = useHistory();
     const name = localStorage.getItem('name');
-    const role = localStorage.getItem('role');
   
     function handleLogout() {
         localStorage.clear();
@@ -30,9 +29,9 @@ export default function Home(){
                         <NavDropdown title="Opções" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/employee">Profissionais AMA</NavDropdown.Item>
                             <NavDropdown.Item href="/patients">Crianças AMA</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Perfil</NavDropdown.Item>
+                            <NavDropdown.Item href="#" disabled>Perfil</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.3">Agendamento</NavDropdown.Item>
+                            <NavDropdown.Item href="/schedulle">Agendamento</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Form>

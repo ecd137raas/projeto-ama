@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Employee from './pages/Employee';
 import Patients from './pages/Patients';
+import Schedulle from './pages/Schedulle';
 
 export default function Routes() {
     return (
@@ -14,6 +15,7 @@ export default function Routes() {
                 <Route path="/home" component={Home} />
                 <Route path="/employee" component={Employee} />
                 <Route path="/patients" component={Patients} />
+                <Route path="/schedulle" component={Schedulle} />
             </Switch>
         </BrowserRouter>
     )

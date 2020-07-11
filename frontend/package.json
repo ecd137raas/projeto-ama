@@ -10,10 +10,12 @@
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
+    "react-bootstrap-typeahead": "^5.0.0-alpha.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.9.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-typeahead": "^2.0.0-alpha.8"
   },
   "scripts": {
     "start": "react-scripts start",

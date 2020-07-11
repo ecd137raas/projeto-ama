@@ -20,7 +20,7 @@ export default function Employee() {
         e.preventDefault();
         const data = {name, email, role, city, uf, therapist, active};
         try{
-            const res = await api.post('employee', data);
+            await api.post('employee', data);
             history.push('/home')
         } catch(error) {
             alert('Erro ao cadastrar um profissional, tente novamente.');
@@ -37,7 +37,7 @@ export default function Employee() {
                     <h6 className="card-subtitle mb-2 text-muted">Preencha os campos abaixo para realizar o cadastro de um profissional do AMA, lembre-se de preencher corretamente!</h6>
                 </Card.Title>
                     <Form  onSubmit={handleEmployee}>
-                        <Form.Row>
+                        <Form.Row style={{marginTop:'10px'}}>
                             <Col>
                                 <Form.Control type="text" placeholder="Nome completo"value={name} onChange={e => setName(e.target.value)} required/>
                                 <Form.Text className="text-muted"> Preencha o nome completo do profissional.</Form.Text>
@@ -47,13 +47,13 @@ export default function Employee() {
                                 <Form.Text className="text-muted"> Preencha seu e-mail.</Form.Text>
                             </Col>
                             </Form.Row>
-                            <Form.Row>
+                            <Form.Row style={{marginTop:'10px'}}>
                             <Col>
                                 <Form.Control className="form-control" type="text" placeholder="Especialidade ou cargo" value={role} onChange={e => setRole(e.target.value)} required/>
                                 <Form.Text className="text-muted"> Preencha sua especialidade, exemplo, Terapeuta.</Form.Text>
                             </Col>
                             </Form.Row>
-                            <Form.Row>
+                            <Form.Row style={{marginTop:'10px'}}>
                                 <Col>
                                     <Form.Control className="form-control" type="text" placeholder="Cidade" value={city} onChange={e => setCity(e.target.value)} required/>
                                     <Form.Text className="text-muted"> Preencha a cidade, exemplo, São Paulo.</Form.Text>
@@ -63,12 +63,12 @@ export default function Employee() {
                                     <Form.Text className="text-muted"> Preencha seu estado, exemplo, SP.</Form.Text>
                                 </Col>
                                 <Col>
-                                    <Form.Check  type="checkbox" label="Terapeuta" checked={therapist} onChange={e => setTherapist(e.target.value)} />
-                                    <Form.Text className="text-muted"> Clique se o profissional for um terapeuta.</Form.Text>
+                                    <Form.Check  type="switch" label="Terapeuta" id="custom-switch" checked={therapist} onChange={e => setTherapist(e.target.value)} />
+                                    <Form.Text className="text-muted"> Ative se o profissional for um terapeuta.</Form.Text>
                                 </Col>
                                 <Col>
-                                    <Form.Check type="checkbox" label="Ativo"  checked={active} onChange={e => setActive(e.target.value)}/>
-                                    <Form.Text className="text-muted"> Clique para ativar o usuário.</Form.Text>
+                                    <Form.Check type="switch" label="Ativo" id="custom-switch-2" checked={active} onChange={e => setActive(e.target.value)}/>
+                                    <Form.Text className="text-muted"> Ativar o usuário.</Form.Text>
                                 </Col>
                            </Form.Row>
                            <Button className="btn btn-primary btn-md mt-3" type="submit">Salvar</Button>
